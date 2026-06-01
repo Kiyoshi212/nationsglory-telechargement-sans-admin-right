@@ -35,11 +35,7 @@ goto WAIT_EXE
 echo Executable detecte.
 
 :: Creation du raccourci Bureau
-powershell -Command ^
-"$s=(New-Object -ComObject WScript.Shell).CreateShortcut('%USERPROFILE%\Desktop\NationsGlory.lnk');" ^
-"$s.TargetPath='%NG_DIR%\NG\NationsGlory.exe';" ^
-"$s.WorkingDirectory='%NG_DIR%\NG';" ^
-"$s.Save();"
+powershell -NoProfile -ExecutionPolicy Bypass -Command "$s=(New-Object -ComObject WScript.Shell).CreateShortcut('%USERPROFILE%\Desktop\NationsGlory.lnk');$s.TargetPath='%NG_DIR%\NG\NationsGlory.exe';$s.WorkingDirectory='%NG_DIR%\NG';$s.Save()"
 
 echo Raccourci cree sur le Bureau.
 echo Termine.
